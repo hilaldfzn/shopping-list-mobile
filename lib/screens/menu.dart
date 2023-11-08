@@ -5,12 +5,6 @@ import 'package:shopping_list/widgets/shop_card.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
 
-  final List<ShopItem> items = [
-    ShopItem("Lihat Produk", Icons.checklist),
-    ShopItem("Tambah Produk", Icons.add_shopping_cart),
-    ShopItem("Logout", Icons.logout),
-  ];
-
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -19,16 +13,23 @@ class MyHomePage extends StatelessWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
+
+  final List<ShopItem> items = [
+    ShopItem("Lihat Produk", Icons.checklist),
+    ShopItem("Tambah Produk", Icons.add_shopping_cart),
+    ShopItem("Logout", Icons.logout),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
-        foregroundColor: Colors.white,
+        centerTitle: false,
         title: const Text(
-          style: TextStyle(color: Colors.white),
           'Shopping List',
         ),
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
       ),
       drawer: const LeftDrawer(),
       body: SingleChildScrollView(
@@ -70,11 +71,4 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
-}
-
-class ShopItem {
-  final String name;
-  final IconData icon;
-
-  ShopItem(this.name, this.icon);
 }
